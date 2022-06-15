@@ -18,6 +18,8 @@ namespace DAT602_final
         private bool _isLogin = false;
         private bool _inGame = false;
 
+
+
         public bool InGame
         {
             get { return _inGame; }
@@ -47,9 +49,10 @@ namespace DAT602_final
             set { _password = value; }
         }
 
-        public bool AdminCheck()
+        public bool AdminCheck
         {
-            return _adminCheck == true;
+            get { return _adminCheck; }
+            set { _adminCheck = value; }
         }
 
         public bool Lockout()

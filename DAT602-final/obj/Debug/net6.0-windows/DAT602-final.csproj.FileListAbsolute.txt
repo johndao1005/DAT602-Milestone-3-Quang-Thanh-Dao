@@ -19,3 +19,12 @@ C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\ref\DAT602-final.dll
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\DAT602-final.pdb
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\DAT602-final.genruntimeconfig.cache
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\ZstdNet.dll
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\DAT602-final.csproj.CopyComplete

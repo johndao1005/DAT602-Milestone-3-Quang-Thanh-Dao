@@ -142,7 +142,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Save);
-            this.Name = "UserDetailsForm";
             this.Text = "UserDetailsForm";
             this.ResumeLayout(false);
             this.PerformLayout();

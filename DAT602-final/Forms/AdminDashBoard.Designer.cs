@@ -207,6 +207,7 @@
             this.Controls.Add(this.Send);
             this.Name = "AdminDashBoard";
             this.Text = "AdminDashBoard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDashBoard_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ChatList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserList)).EndInit();

@@ -13,54 +13,92 @@ namespace DAT602_final.Forms
     public partial class LoginForm : Form
     {
         private User? _user;
-        private MainDashboard _mainDashboard = new();
-        private AdminDashBoard _adminDashBoard = new();
-        private RegisterForm _registerForm = new();
-
+        private MainDashboard _mainDashboard;
+        private AdminDashBoard _adminDashBoard;
+        private RegisterForm _registerForm;
+        Class.DataAccess _dbAccess = new();
         public LoginForm()
         {
             InitializeComponent();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        { 
+            CloseApplication();
         }
 
         private void Login_Click(object sender, EventArgs e)
         {
+            _user = new();
             // check email and password
+            string email = this.Email.Text;
+            string password = this.Password.Text;
+            if (
+                email.Length == 0 ||
+                password.Length == 0
+                )
+            {
+                MessageBox.Show("Please fill up all the information", "Login", MessageBoxButtons.OK);
+                return;
+            }
 
+            string message = _dbAccess.AuthUser(email, password);
+
+            _user.Email = email;
             // store message into a string
-            string message = "";
-            if (message == "")
+            if (message == "Hello admin" && _user !=null)
             {
-                this.Hide();
-                if(_mainDashboard.ShowDialog() == DialogResult.Cancel)
-                {
-                    this.Close();
-                } 
-            } else if(message == "")
+                OpenDashBoard(true);
+            } else if(message == "Hello user")
             {
-                MessageBox.Show("Email and password is not match", "Login Error", MessageBoxButtons.OK);
+                OpenDashBoard(false);
+            }
+            else
+            {
+                MessageBox.Show(message, "Login Error", MessageBoxButtons.OK);
                 return;
             }
         }
 
         private void Register_Click(object sender, EventArgs e)
         {
+            _registerForm = new();
+            _user = new();
             this.Hide();
-            if (_registerForm.ShowDialog()== DialogResult.Cancel)
+            if (_user != null && _registerForm.ShowDialog(_user, this))
             {
-                this.Show();
-            } else
+                OpenDashBoard(false);
+            }
+        }
+
+        private void OpenDashBoard(bool admin)
+        {
+            this.Hide();
+            if (admin == true)
             {
-                this.Hide();
-                if (_mainDashboard.ShowDialog() == DialogResult.Cancel)
+                _adminDashBoard = new();
+                if (_adminDashBoard.ShowDialog(_user.Email))
                 {
-                    this.Close();
+                    CloseApplication();
                 }
             }
+            else
+            {
+                _mainDashboard = new();
+                if (_mainDashboard.ShowDialog(_user.Email))
+                {
+                    CloseApplication();
+                }
+            }
+        }
+
+        public void CloseApplication()
+        {
+            if(_user != null)
+            {
+                _dbAccess.LogoutUser(_user.Email);
+            }
+            this.Close();
         }
     }
 }

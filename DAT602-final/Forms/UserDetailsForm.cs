@@ -12,13 +12,13 @@ namespace DAT602_final.Forms
 {
     public partial class UserDetailsForm : Form
     {
-        private User _user;
+        private DataRow _user;
         public UserDetailsForm()
         {
             InitializeComponent();
         }
 
-        public bool ShowDialog(User user)
+        public bool ShowDialog(DataRow user)
         {
             _user = user;
             return this.ShowDialog() == DialogResult.OK;
