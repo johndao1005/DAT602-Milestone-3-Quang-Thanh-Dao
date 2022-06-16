@@ -28,3 +28,4 @@ C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\bin\Debug\net6.0-windows\ZstdNet.dll
 C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\DAT602-final.csproj.CopyComplete
+C:\Users\John-Dao\workspace\DAT602-Milestone-3-Quang-Thanh-Dao\DAT602-final\obj\Debug\net6.0-windows\DAT602_final.Forms.GameScreen.resources

@@ -5,6 +5,9 @@
     <Compile Update="Forms\AdminDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

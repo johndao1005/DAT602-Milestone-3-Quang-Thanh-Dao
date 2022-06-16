@@ -13,6 +13,7 @@ namespace DAT602_final.Forms
     public partial class UserDetailsForm : Form
     {
         private DataRow _user;
+        Class.DataAccess _dbAccess = new();
         public UserDetailsForm()
         {
             InitializeComponent();
@@ -21,6 +22,9 @@ namespace DAT602_final.Forms
         public bool ShowDialog(DataRow user)
         {
             _user = user;
+            Name.Text = _user["username"].ToString();
+            Email.Text = _user["email"].ToString(); 
+            Password.Text = _user["password"].ToString();
             return this.ShowDialog() == DialogResult.OK;
         }
 
@@ -28,12 +32,24 @@ namespace DAT602_final.Forms
         {
             // get the data from user and update the field
             PushData();
-            DialogResult = DialogResult.OK;
         }
 
         private void PushData()
         {
-            // update the data
+            string email = Email.Text;
+            string password = Password.Text;
+            string name = Name.Text;
+            int id = Convert.ToInt32(_user["userID"]);
+            string message = _dbAccess.EditUser(id,name,email,password);
+            if(message == "update success")
+            {
+            DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show(message, "Edit User", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         private void Cancel_Click(object sender, EventArgs e)

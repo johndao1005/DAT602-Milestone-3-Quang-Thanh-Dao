@@ -13,7 +13,7 @@ namespace DAT602_final.Class
         private static readonly String connectionString = "Server=localhost;Port=3306;Database=foodiedb;Uid=root;password=Hoalong986;";
         private MySql.Data.MySqlClient.MySqlConnection mySqlConnection = new(connectionString);
 
-        public string CreateUser(string inputEmail, string inputUserName, string inputPassword)
+        public string CreateUser(string inputEmail, string inputUserName, string inputPassword, int inputAdmin = 0)
         {
             List<MySqlParameter> p = new List<MySqlParameter>();
             var aP = new MySqlParameter("@inputEmail", MySqlDbType.VarChar, 255);
@@ -25,11 +25,14 @@ namespace DAT602_final.Class
             var aP2 = new MySqlParameter("@inputPassword", MySqlDbType.VarChar, 255);
             aP2.Value = inputPassword;
             p.Add(aP2);
+            var aP3 = new MySqlParameter("@inputAdmin", MySqlDbType.Int16);
+            aP2.Value = inputAdmin;
+            p.Add(aP3);
 
-            var aDataSet = MySqlHelper.ExecuteDataset(mySqlConnection, "CreateUser(@inputEmail,@inputUserName,@inputPassword)", p.ToArray());
+            var aDataSet = MySqlHelper.ExecuteDataset(mySqlConnection, "CreateUser(@inputEmail,@inputUserName,@inputPassword,@inputAdmin)", p.ToArray());
 
             // expecting one table with one row
-            return (aDataSet.Tables[0].Rows[0])["message"].ToString();
+            return aDataSet.Tables[0].Rows[0]["message"].ToString();
         }
 
         public string AuthUser(string inputEmail, string inputPassword)
@@ -76,7 +79,17 @@ namespace DAT602_final.Class
             return (aDataSet.Tables[0].Rows[0])["message"].ToString();
         }
 
-        public string EditUser(int inputID, string inputEmail, string inputUserName, string inputPassword)
+        public DataSet GetCharacterLocation(int inputCharacterID)
+        {
+            List<MySqlParameter> p = new List<MySqlParameter>();
+            var aP = new MySqlParameter("@inputID", MySqlDbType.Int32);
+            aP.Value = inputCharacterID;
+            p.Add(aP);
+
+            return  MySqlHelper.ExecuteDataset(mySqlConnection, "GetCharacterLocation(@inputID)", p.ToArray());
+        }
+
+        public string EditUser(int inputID, string inputUserName, string inputEmail,  string inputPassword)
         {
             List<MySqlParameter> p = new List<MySqlParameter>();
             var aP = new MySqlParameter("@inputID", MySqlDbType.Int32);
@@ -94,7 +107,7 @@ namespace DAT602_final.Class
 
             var aDataSet = MySqlHelper.ExecuteDataset(mySqlConnection, "EditUser(@inputID,@inputUserName,@inputEmail,@inputPassword)", p.ToArray());
             // expecting one table with one row
-            return (aDataSet.Tables[0].Rows[0])["message"].ToString();
+            return aDataSet.Tables[0].Rows[0]["message"].ToString();
         }
 
         /*        Character*/
@@ -127,6 +140,7 @@ namespace DAT602_final.Class
             // expecting one table with one row
             return (aDataSet.Tables[0].Rows[0])["message"].ToString();
         }
+
         /*Game Session*/
         public string CreateSession(int inputID)
         {

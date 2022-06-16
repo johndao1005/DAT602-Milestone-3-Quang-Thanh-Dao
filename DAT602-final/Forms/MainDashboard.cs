@@ -12,8 +12,11 @@ namespace DAT602_final.Forms
 {
     public partial class MainDashboard : Form
     {
-        private DataRow _user;
+        string _email;
+        private DataRow? _user;
+        private DataRow? _session;
         private UserDetailsForm _userDetailsForm = new();
+        private GameScreen _gameScreen;
         Class.DataAccess _dbAccess = new();
         public MainDashboard()
         {
@@ -27,8 +30,7 @@ namespace DAT602_final.Forms
         /// <returns></returns>
         public bool ShowDialog(string email)
         {
-            _user = _dbAccess.GetUserDetails(email);
-            User.Text = _user["username"].ToString();
+            _email = email;
             UpdateDisplay();
             return ShowDialog() == DialogResult.Cancel;
         }
@@ -40,7 +42,8 @@ namespace DAT602_final.Forms
          
         private void UpdateDisplay()
         {
-           /* User.Text = _user.Email;*/
+            _user = _dbAccess.GetUserDetails(_email);
+            User.Text = _user["username"].ToString();
             BindingSource allUsers = new();
             allUsers.DataSource = _dbAccess.GetOnlineUsers().Tables[0];
             UserList.DataSource = allUsers;
@@ -63,6 +66,44 @@ namespace DAT602_final.Forms
         private void MainDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void MainDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Join_Click(object sender, EventArgs e)
+        {
+            if (GameList.RowCount == 0)
+            {
+                MessageBox.Show("There are no Session", "Edit Session", MessageBoxButtons.OK);
+                return;
+            }
+            if (GameList.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Please select a Session", "Edit Session", MessageBoxButtons.OK);
+                return;
+            }
+            _session = (DataRow)((DataRowView)GameList.SelectedRows[0].DataBoundItem).Row;
+            if (_session == null)
+            {
+                MessageBox.Show("Please select a Session", "Edit Session", MessageBoxButtons.OK);
+                return;
+            }
+            int sessionId = Convert.ToInt32(_session["sessionID"]);
+            int userId = Convert.ToInt32(_user["userID"]);
+            string message = _dbAccess.JoinSession(userId, sessionId);
+            if(message == "Welcome to the game <3" )
+            {
+                _gameScreen = new();
+                this.Hide();
+                if(sessionId != 0 && _gameScreen.ShowDialog(_session, userId))
+                {
+                    UpdateDisplay();
+                }
+                this.Show();
+            }
         }
     }
 }
