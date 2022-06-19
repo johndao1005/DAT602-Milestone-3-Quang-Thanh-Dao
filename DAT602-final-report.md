@@ -261,61 +261,61 @@ Following the design of Milestone 1, Foodie will only allow a game to start with
 
 Display screen for the user to enter email and password or quit the application.
 
-![image-20220616144701345](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616144701345.png)
+![image-20220616144701345](./src/image-20220616144701345.png)
 
 Display popup message when user is not exist or wrong password is provided.
 
-![image-20220616144730647](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616144730647.png)
+![image-20220616144730647](./src/image-20220616144730647.png)
 
 Display an error message if the password and email match but user already login 
 
-![image-20220616145023312](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145023312.png)
+![image-20220616145023312](./src/image-20220616145023312.png)
 
 ### 1.2 Register
 
 The Register form will pop up when the user click register button.
 
-![image-20220616144742330](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616144742330.png)
+![image-20220616144742330](./src/image-20220616144742330.png)
 
 When confirm password is not match with password.
 
-![image-20220616144801251](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616144801251.png)
+![image-20220616144801251](./src/image-20220616144801251.png)
 
 Display error message if the email is already in used
 
-![image-20220616145005673](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145005673.png)
+![image-20220616145005673](./src/image-20220616145005673.png)
 
 ### 1.3 Main
 
 Display Main Dashboard when the user completes their registration or log in.
 
-![image-20220616144845501](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616144845501.png)
+![image-20220616144845501](./src/image-20220616144845501.png)
 
 Trying to join a session when there is no available sessions.
 
-![image-20220616145059342](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145059342.png)
+![image-20220616145059342](./src/image-20220616145059342.png)
 
 ### 1.4 Admin
 
 Display Admin dashboard to control player and user without the option to join the game.
 
-![image-20220616145204889](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145204889.png)
+![image-20220616145204889](./src/image-20220616145204889.png)
 
 Select a user from the list and click the edit user button will open the user details form so the admin can edit.
 
-![image-20220616145222584](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145222584.png)
+![image-20220616145222584](./src/image-20220616145222584.png)
 
 ### 1.5 User details
 
 Open if admin select a user or user click User Detail.
 
-![image-20220616145118607](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145118607.png)
+![image-20220616145118607](./src/image-20220616145118607.png)
 
 ### 1.6 Game screen
 
 The game screen displays when a player joins a session with buttons to allow the player to move to a different location. Players can click on the board to check the board location details
 
-![image-20220616145532033](C:\Users\John-Dao\AppData\Roaming\Typora\typora-user-images\image-20220616145532033.png)
+![image-20220616145532033](./src/image-20220616145532033.png)
 
 ## 2. Update SQL script
 
