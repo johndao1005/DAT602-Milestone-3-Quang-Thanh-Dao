@@ -36,12 +36,13 @@
             this.ChatList = new System.Windows.Forms.DataGridView();
             this.Message = new System.Windows.Forms.TextBox();
             this.Send = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChatList)).BeginInit();
             this.SuspendLayout();
             // 
             // Up
             // 
-            this.Up.Location = new System.Drawing.Point(164, 410);
+            this.Up.Location = new System.Drawing.Point(126, 383);
             this.Up.Name = "Up";
             this.Up.Size = new System.Drawing.Size(94, 29);
             this.Up.TabIndex = 1;
@@ -51,7 +52,7 @@
             // 
             // Right
             // 
-            this.Right.Location = new System.Drawing.Point(238, 469);
+            this.Right.Location = new System.Drawing.Point(206, 442);
             this.Right.Name = "Right";
             this.Right.Size = new System.Drawing.Size(94, 29);
             this.Right.TabIndex = 2;
@@ -61,7 +62,7 @@
             // 
             // Left
             // 
-            this.Left.Location = new System.Drawing.Point(83, 469);
+            this.Left.Location = new System.Drawing.Point(45, 442);
             this.Left.Name = "Left";
             this.Left.Size = new System.Drawing.Size(94, 29);
             this.Left.TabIndex = 3;
@@ -71,7 +72,7 @@
             // 
             // Down
             // 
-            this.Down.Location = new System.Drawing.Point(164, 530);
+            this.Down.Location = new System.Drawing.Point(126, 503);
             this.Down.Name = "Down";
             this.Down.Size = new System.Drawing.Size(94, 29);
             this.Down.TabIndex = 4;
@@ -129,11 +130,22 @@
             this.Send.Text = "Send";
             this.Send.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 544);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(675, 20);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Sorry the game only work with Down Direction atm. which will display and show on " +
+    "Database as well";
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ChatList);
             this.Controls.Add(this.Message);
             this.Controls.Add(this.Send);
@@ -160,5 +172,6 @@
         private DataGridView ChatList;
         private TextBox Message;
         private Button Send;
+        private Label label1;
     }
 }

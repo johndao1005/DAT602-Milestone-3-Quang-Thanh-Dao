@@ -11,7 +11,7 @@ namespace DAT602_final
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new GameScreen());
+            Application.Run(new LoginForm());
         }
     }
 }

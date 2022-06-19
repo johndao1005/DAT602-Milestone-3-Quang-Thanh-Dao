@@ -1,8 +1,10 @@
-
+drop database if exists FoodieDB;
+create database FoodieDB;
 use FoodieDB;
 DELIMITER //
 SET GLOBAL FOREIGN_KEY_CHECKS=0;
 -- DATABASE INIT
+drop procedure if exists PrebuildMap;
 drop procedure if exists CREATEDB;
 drop procedure if exists DeleteUser;
 drop procedure if exists CreateCharacter;
@@ -132,7 +134,7 @@ end //
 
 -- Map
 -- Can change into session log for everything with session ID to record the change such as eat food from map or changing tiles. the session ID can take from player session
-drop procedure if exists PrebuildMap;
+
 create procedure PrebuildMap(in session_map varchar(255))
 begin
 	set @MapName = session_map;
@@ -529,12 +531,12 @@ end//
 
 create procedure GetOnlineUsers()
 begin
-		Select * from Users where Users.login_check = true;
+		Select email,highest_score from Users where Users.login_check = true;
 end//
 
 create procedure GetOnlineSession()
 begin
-		select * from Sessions where Sessions.characterID_2 is null;
+		select sessionID, characterID_1, session_map from Sessions where Sessions.characterID_2 is null;
 end//
 
 create procedure GetCharacterLocation(in ID int)

@@ -184,7 +184,7 @@ namespace DAT602_final.Class
             p.Add(aP2);
 
             var aDataSet = MySqlHelper.ExecuteDataset(mySqlConnection, "MovePosition(@inputDirection,@inputID,@mapName)", p.ToArray());
-            // expecting one table with one row
+            // expecting one table with one row 
             return (aDataSet.Tables[0].Rows[0])["message"].ToString();
         }
 
